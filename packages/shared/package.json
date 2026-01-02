@@ -1,0 +1,8 @@
+{
+  "name": "@lembur-apps/shared",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "@prisma/client": "^6.0.0"
+  }
+}

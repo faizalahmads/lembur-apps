@@ -1,0 +1,39 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String     @id @default(cuid())
+  username  String     @unique
+  password  String
+  name      String
+  role      String     @default("driver")
+  lembur    Lemburan[]
+  createdAt DateTime   @default(now()) @map("created_at")
+
+  @@map("users")
+}
+
+model Lemburan {
+  id          String    @id @default(cuid())
+  driverId    String    @map("driver_id")
+  driver      User      @relation(fields: [driverId], references: [id])
+  tanggal     DateTime  @default(now())
+  hari        String
+  jamMulai    String    @map("jam_mulai")
+  jamSelesai  String?   @map("jam_selesai")
+  kegiatan    String
+  lokasi      String
+  foto        String
+  status      String    @default("pending")
+  bulan       String
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+
+  @@map("lemburan")
+}

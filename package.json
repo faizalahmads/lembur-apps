@@ -1,0 +1,27 @@
+{
+  "name": "lembur-apps",
+  "private": true,
+  "scripts": {
+    "clean": "powershell -ExecutionPolicy Bypass -File ./clean.ps1",
+    "install:all": "npm install && cd apps/web && npm install && cd ../api && npm install && cd ../mobile && npm install || echo 'Mobile not ready'",
+    "dev": "concurrently \"npm run dev:web\" \"npm run dev:api\" \"npm run dev:mobile\"",
+    "dev:web": "cd apps/web && npm run dev",
+    "dev:api": "cd apps/api && npm run dev",
+    "dev:mobile": "cd apps/mobile && npm run start",
+    "build:web": "cd apps/web && npm run build",
+    "build:api": "cd apps/api && npm run build",
+    "android": "cd apps/mobile && npm run android",
+    "ios": "cd apps/mobile && npm run ios",
+    "db:generate": "npx prisma generate",
+    "db:push": "npx prisma db push",
+    "db:studio": "npx prisma studio",
+    "fix:lock": "cd apps/web && rm -r -fo node_modules/.cache && cd ../api && rm -r -fo node_modules/.cache && cd ../.."
+  },
+  "devDependencies": {
+    "concurrently": "^8.0.0",
+    "prisma": "^6.0.0"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.0.0"
+  }
+}

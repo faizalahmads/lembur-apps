@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import styles from "./login.module.css";
+import Footer from "../components/layout/footer/page";
 
 export default function LoginPage() {
   const [username, setUsername] = useState("");
@@ -55,57 +56,60 @@ export default function LoginPage() {
         <img src="/img/logo-ilcs.png" alt="Logo" />
       </div>
 
-      <div className={styles["login-card"]}>
-        <h2 className={styles.title}>Masuk</h2>
+      <div className={styles["login-wrapper"]}>
+        <div className={styles["login-card"]}>
+          <h2 className={styles.title}>Masuk</h2>
 
-        {error && <p className={styles.error}>{error}</p>}
+          {error && <p className={styles.error}>{error}</p>}
 
-        <form onSubmit={handleSubmit}>
-          <div className={styles["form-group"]}>
-            <input
-              type="text"
-              placeholder="Username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              required
-            />
-          </div>
-
-          <div className={styles["input-wrapper"]}>
-            <input
-                type={showPassword ? "text" : "password"}
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+          <form onSubmit={handleSubmit}>
+            <div className={styles["form-group"]}>
+              <input
+                type="text"
+                placeholder="Username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
                 required
-            />
-
-            <button
-                type="button"
-                className={styles["eye-btn"]}
-                onClick={() => setShowPassword(!showPassword)}
-                aria-label="Toggle password"
-            >
-                <img
-                src={showPassword ? "/svg/eye-off.svg" : "/svg/eye-on.svg"}
-                alt="Toggle password visibility"
-                />
-            </button>
+              />
             </div>
 
-          <div className={styles.forgot}>
-            <a href="#">Lupa password?</a>
-          </div>
+            <div className={styles["input-wrapper"]}>
+              <input
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+              />
 
-          <button
-            className={styles["btn-login"]}
-            type="submit"
-            disabled={loading}
-          >
-            {loading ? "Loading..." : "Masuk"}
-          </button>
-        </form>
+              <button
+                  type="button"
+                  className={styles["eye-btn"]}
+                  onClick={() => setShowPassword(!showPassword)}
+                  aria-label="Toggle password"
+              >
+                  <img
+                  src={showPassword ? "/svg/eye-off.svg" : "/svg/eye-on.svg"}
+                  alt="Toggle password visibility"
+                  />
+              </button>
+              </div>
+
+            <div className={styles.forgot}>
+              <a href="#">Lupa password?</a>
+            </div>
+
+            <button
+              className={styles["btn-login"]}
+              type="submit"
+              disabled={loading}
+            >
+              {loading ? "Loading..." : "Masuk"}
+            </button>
+          </form>
+        </div>
       </div>
+      <Footer />
     </div>
   );
 }

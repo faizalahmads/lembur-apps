@@ -1,0 +1,95 @@
+.navbar {
+  width: 100%;
+  height: 75px;
+  background-color: #acd6e9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  box-sizing: border-box;
+}
+
+/* =====================
+   MENU KIRI
+===================== */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-item {
+  background: transparent;
+  border: none;
+  padding: 5px 20px;
+  border-radius: 20px;
+  font-size: 25px;
+  font-family: "PT Sans Caption", sans-serif;
+  font-weight: 700;
+  color: #0a2540;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* HOVER */
+.nav-item:hover {
+  background-color: rgba(31, 58, 77, 0.1);
+}
+
+/* ACTIVE */
+.nav-item.active {
+  outline: 3px solid #1f3a4d;
+  outline-offset: -3px;
+  background-color: rgba(31, 58, 77, 0.15);
+}
+
+/* =====================
+   LOGOUT
+===================== */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.logout-text {
+  font-size: 25px;
+  font-family: "PT Sans Caption", sans-serif;
+  font-weight: 700;
+  color: #1e1e1e;
+}
+
+.logout-icon {
+  width: 31px;
+  height: 31px;
+  position: relative;
+}
+
+.icon-left {
+  position: absolute;
+  width: 11.84px;
+  height: 21.53px;
+  left: 3.88px;
+  top: 2.58px;
+  background-color: #1e1e1e;
+}
+
+.icon-right {
+  position: absolute;
+  width: 15.07px;
+  height: 11.84px;
+  left: 8.18px;
+  top: 7.96px;
+  background-color: #1e1e1e;
+}
+
+/* HOVER LOGOUT */
+.nav-right:hover .logout-text {
+  color: #0a2540;
+}
+
+.nav-right:hover .icon-left,
+.nav-right:hover .icon-right {
+  background-color: #0a2540;
+}
